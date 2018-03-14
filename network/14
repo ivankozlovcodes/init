@@ -1,0 +1,2 @@
+echo dpm-master.42.us.org
+#dig +noall +answer -x 10.51.1.81 | awk '{print $5}'

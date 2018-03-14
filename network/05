@@ -1,2 +1,1 @@
-nslookup slash16.org | awk '/Address/{print $2}'
-echo "NOT DONE"
+nslookup slash16.org | grep Server | awk '{print $2}' 
