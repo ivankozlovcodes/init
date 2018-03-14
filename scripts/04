@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sumfile=~/.sumfile
+cronefile=/etc/crontab
+if [ ! -z "$sumfile" ];
+then
+	md5sum "$cronefile" > "$sumfile"
+fi
+if ! md5sum -c --status "$sumfile"; then
+	echo modified
+	md5sum "$cronefile" > "$sumfile"
+fi
