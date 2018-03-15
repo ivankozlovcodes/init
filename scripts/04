@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#to add it to crontab run following command
+#crontab 0 0 * * * ~/git/init/scripts/04
+
 sumfile=~/.sumfile
 cronefile=/etc/crontab
 if [ ! -z "$sumfile" ];
@@ -7,6 +10,6 @@ then
 	md5sum "$cronefile" > "$sumfile"
 fi
 if ! md5sum -c --status "$sumfile"; then
-	echo modified
+	echo crontab was modified | mail -s "Crontab modified" root
 	md5sum "$cronefile" > "$sumfile"
 fi
