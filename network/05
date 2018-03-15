@@ -1,1 +1,1 @@
-nslookup slash16.org | grep Server | awk '{print $2}' 
+nslookup slash16.org
